@@ -5,7 +5,7 @@ export default function Contactus(props) {
     color: props.mode ==='dark'?'white':'#042743',
 }
   return (
-    <div className='container'>
+    <div className='container mb-8'>
      <h1 className="my-3" style={myStyle}>Contact Us</h1>
      <div className='container'>
       <form method="post"  action='https://formspree.io/f/mpzvdlda'>
