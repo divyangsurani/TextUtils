@@ -69,25 +69,15 @@ export default function TextForm(props) {
         props.showAlert("Text extracted!", "success");
     };
 
-   const listenNow = (text) => {
-    if ('speechSynthesis' in window) {
-        const synth = window.speechSynthesis;
-        const utterance = new SpeechSynthesisUtterance(text);
-        
-        // Get a list of all available voices
-        const voices = synth.getVoices();
-        
-        // Find a female voice
-        const femaleVoice = voices.find(voice => voice.name.includes('Female'));
-        
-        // If a female voice is found, use it; otherwise, use the default voice
-        utterance.voice = femaleVoice || voices[0];
-        
-        synth.speak(utterance);
-    } else {
-        alert('Text-to-speech is not supported in this browser.');
-    }
-};
+  const listenNow = () => {
+        if ('speechSynthesis' in window) {
+            const synth = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(text);
+            synth.speak(utterance);
+        } else {
+            alert('Text-to-speech is not supported in this browser.');
+        }
+    };
 
     const removeWhiteSpace = () => {
         let newText = text.replace(/\s/g, "");
